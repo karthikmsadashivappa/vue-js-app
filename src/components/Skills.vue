@@ -10,9 +10,11 @@
       </transition>
     </form>
       <ul>
-        <li v-for="(data,index) in skills" :key='index'>{{ data.skill }}</li>
-        <p>These are the skills that you possess.</p>
+        <transition-group name="list" enter-active-class="animated bounceInUp" leave-active-class="animated bounceOutDown">
+          <li v-for="(data,index) in skills" :key='index'>{{ data.skill }}</li>
+        </transition-group>
       </ul>
+        <p>These are the skills that you possess.</p>
     </div>
   </div>
 </template>
@@ -46,6 +48,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@import "https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css";
 
 .holder {
   background: #fff;
